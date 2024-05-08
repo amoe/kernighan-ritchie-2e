@@ -23,3 +23,16 @@ Which it does in e.g. Perl.
 You may use different calls to the `printf` function to gradually build up
 output as you receive it.  This is an odd technique that likely would not be
 used now.
+
+## Ex1-1
+
+Done
+
+## Ex1-2
+
+Done, and the escaped character just got swallowed.   I assume because it was a
+\a which triggers a bell (but it's probably suppressed by my terminal).
+
+
+## 1.2 Variables and Arithmetic Expressions
+
