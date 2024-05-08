@@ -81,3 +81,19 @@ this.
 fractional decimal point during display.
 
 If the width is omitted then no right-justify will occur.
+
+## Ex1-4
+
+If
+
+y = (5/9) * (x - 32)
+
+Solve for x:
+
+
+(9/5)y = x - 32
+
+(9/5)y + 32 = x
+
+x = ((9/5)*y) + 32
+
