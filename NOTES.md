@@ -36,3 +36,36 @@ Done, and the escaped character just got swallowed.   I assume because it was a
 
 ## 1.2 Variables and Arithmetic Expressions
 
+All variables must be declared before they are used.
+
+In this book, they expect ints to be 16-bit  or 32-bit, but the range of ints is
+basically unspecified.
+
+floats are expected to be 32-bit.   This still applies now because of IEEE 754.
+They define the range of a float as 10^-38 to 10^38 and six significant digits.
+
+There are some other types included in ANSI:
+
+* char
+* short
+* long
+* double
+
+You can't rely on the size of these types.  `float` is the most reliable, but
+still not technically guaranteed.  C99 has int8_t for if you really want to
+guarantee an 8-bit char.
+
+K&R are using a four space tab stop.
+
+Re:
+
+    celsius = 5 * (fahr - 32) / 9
+
+>  The reason for multiplying by 5 and then dividing by 9 instead of just
+>  multiplying by 5/9 is that in C, as in many other languages, integer division
+>  _truncates_: any fractional part is discarded.
+
+So basically this means that you want to do any integer divisions at the last
+possible point to avoid losing information.  Luckily the fractional part (and
+rounding behaviour) isn't important for this particular case.
+
