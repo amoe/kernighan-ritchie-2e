@@ -77,3 +77,7 @@ They right-justify number for easier comprehension.  Using syntax like `%3d` to
 `printf` will automatically right-justify the relevant number.  I did not know
 this.
 
+`%6.1f` specifies right justification, to a width of 6 characters, and keeping 1
+fractional decimal point during display.
+
+If the width is omitted then no right-justify will occur.

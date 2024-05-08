@@ -3,7 +3,8 @@
 /* Print integer-valued temperature tables for Fahrenheit and Celcsius */
 
 main() {
-    int fahr, celsius;
+    int fahr;
+    float celsius;
     int lower, upper, step;
 
     lower = 0;
@@ -13,10 +14,11 @@ main() {
     fahr = lower;
 
     while (fahr <= upper) {
-        /* If we used 5/9, the result would be an int but it would be
-           truncated, meaning that all celsius results would be zero. */
-        celsius = 5 * (fahr - 32) / 9;
-        printf("%3d\t%6d\n", fahr, celsius);
+        /* Now we are using floats.  We must divide by 9.0 rather than 9 here,
+           otherwise the sub-integral precision is still lost. */
+           
+        celsius = 5 * (fahr - 32) / 9.0;
+        printf("%3d\t%6.1f\n", fahr, celsius);
         fahr = fahr + step;
     }
 }
