@@ -16,7 +16,7 @@ main() {
         /* If we used 5/9, the result would be an int but it would be
            truncated, meaning that all celsius results would be zero. */
         celsius = 5 * (fahr - 32) / 9;
-        printf("%d\t%d\n", fahr, celsius);
+        printf("%3d\t%6d\n", fahr, celsius);
         fahr = fahr + step;
     }
 }

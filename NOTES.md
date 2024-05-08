@@ -69,3 +69,11 @@ So basically this means that you want to do any integer divisions at the last
 possible point to avoid losing information.  Luckily the fractional part (and
 rounding behaviour) isn't important for this particular case.
 
+`printf` is not part of the C language, rather it's part of the library, but it
+is defined by the standard.  They recommend `scanf` for reading numbers, but we
+know that this advice is not current nowadays.
+
+They right-justify number for easier comprehension.  Using syntax like `%3d` to
+`printf` will automatically right-justify the relevant number.  I did not know
+this.
+
