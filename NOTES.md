@@ -97,3 +97,27 @@ Solve for x:
 
 x = ((9/5)*y) + 32
 
+## 1.3 The For Statement
+
+We replace the 'while' loop with a more compact equivalent for loop.
+
+> In any context where it is permissible to use the value of a variable of some
+> type, you can use a more complicated expression of that type.
+
+This seems to be another way of talking about the property of referential
+transparency, or the action designated by beta reduction.
+
+    printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+
+Here the %f from the format string takes the complex float-valued expression.
+
+This property is now standard in programming language but was probably novel at
+the time.
+
+Re the choice of 'while' vs 'for':
+
+> The `for` is usually appropriate for loops in which the initialization and
+> increment are single statements and logically related, since it is more
+> compact than `while` and it keeps the loop control statements together in one
+> place.
+
