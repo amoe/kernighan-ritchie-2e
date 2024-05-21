@@ -128,3 +128,64 @@ They introduce preprocessor macros.  They call them "Symbolic Constants".
 They recommend these as a way for defining all constants.
 
 Interestingly they use the horizontal alignment style which I now hate.
+
+## 1.5 Character Input and Output
+
+A family of text-based programs work on line-oriented data.
+
+C provides `getchar` and `putchar` for input and output of single characters
+respectively.  `getchar` returns a char value.  For now most input will come
+from the keyboard.  [Will getchar use line buffering? -DB]
+
+`putchar` and `printf` can be interleaved and they don't buffer, theoretically
+speaking.
+
+
+Using this you can write the `cat` program.  The example they give uses the
+'loop and a half' pattern.
+
+You designate the EOF check as
+
+```
+while (c != EOF) { ... }
+```
+
+`cat` is pleasantly simple.
+
+Instead of using `char` they use `int`.
+`char` is of an unknown width.  They seem to make an assumption that `int` is
+wider than `char`, which seems like it may not be the case?
+I'm pretty sure after a bit of research that this is an extant portability
+issue, albeit purely theoretical, so this particular notion is not strictly ok.
+
+Re EOF:
+
+> The specific numeric value doesn't matter as long as it is not the same as any
+> `char` value.
+
+The second version of the program combines the assignment with the comparison in
+the while loop.  This is somewhat equivalent to Python's 'walrus operator'.
+
+`!=` has higher precedence (binds tighter) than `=` by default which means that:
+
+    c = getchar() != EOF
+
+Would be parsed as:
+
+    c = (getchar() != EOF)
+
+By default.  Which is probably what one would expect.  So the parens are
+necessary to enforce:
+
+    (c = getchar()) != EOF
+
+## Ex 1.6
+
+> Verify that the expression `getchar() != EOF` is 0 or 1.
+
+We empirically check by assigning and printing the value, we can see that the
+expression is 1 until the end of the file, when it becomes 0.
+
+
+
+
