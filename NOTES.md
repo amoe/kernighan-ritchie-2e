@@ -186,6 +186,18 @@ necessary to enforce:
 We empirically check by assigning and printing the value, we can see that the
 expression is 1 until the end of the file, when it becomes 0.
 
+## Ex 1.7
+
+> Write a program to print the value of EOF.
+
+It prints:
+
+> The value of EOF is: -1
+
+So we can assume that because `int` is signed, and `char` can never be <0, that
+EOF constitutes an out-of-band signal in the manner desired.
+
+
 
 
 
