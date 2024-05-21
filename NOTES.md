@@ -121,3 +121,10 @@ Re the choice of 'while' vs 'for':
 > compact than `while` and it keeps the loop control statements together in one
 > place.
 
+## 1.4 Symbolic Constants
+
+They introduce preprocessor macros.  They call them "Symbolic Constants".
+
+They recommend these as a way for defining all constants.
+
+Interestingly they use the horizontal alignment style which I now hate.
