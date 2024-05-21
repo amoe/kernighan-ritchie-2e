@@ -197,6 +197,10 @@ It prints:
 So we can assume that because `int` is signed, and `char` can never be <0, that
 EOF constitutes an out-of-band signal in the manner desired.
 
+## 1.5.2 Character Counting
+
+A long is at least 32 bits.
+
 
 
 
