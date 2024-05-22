@@ -201,7 +201,34 @@ EOF constitutes an out-of-band signal in the manner desired.
 
 A long is at least 32 bits.
 
+K&R introduce a character counting program (which may be characterized by a
+large value for a big file).
 
+If you use a double to track the number you might be able to get even larger
+values.
 
+REVIEW: What does this do:
 
+> printf("%.0f\n", nc);
 
+Answer: Suppresses the printing of the decimal point of a `double` value.
+They suggest using a double but this doesn't sound wise because a double becomes
+inaccurate at higher values.
+
+An isolated semicolon is called a "null statement".
+
+A value between two single quotes is called a character constant: 'A' etc.  It
+is just a small integer.
+
+They note that
+
+> "\n" is a string constant that happens to contain only one character
+
+But arguably this is not actually true, it contains two characters -- counting
+the null terminator.
+
+## 1-10
+
+> Write a program to copy its input to its output, replacing each tab by \t,
+> each backspace by \b, and each backslash by \\.  This makes tabs and
+> backspaces visible in an unambiguous way.
