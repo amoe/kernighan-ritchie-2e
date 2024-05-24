@@ -241,3 +241,8 @@ k&r implement the 'isdigit' test like so:
     }
 
 So we assume here we're dealing with ASCII.
+
+Nothing too remarkable here:
+* No pointers yet, everything is initialized with loops.
+* Subscripts `a[i]` can be dynamic, as you would hope.
+
