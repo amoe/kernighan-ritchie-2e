@@ -244,3 +244,12 @@ for assigning multiple variables at once.
 
 Need to test all kinds of boundary conditions.  For instance, need to define
 what the correct behaviour is for strings like " \n \t " etc.
+
+## 1-6
+
+k&r implement the 'isdigit' test like so:
+
+    if (c > '0' && c <= '9') {
+    }
+
+So we assume here we're dealing with ASCII.
