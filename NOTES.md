@@ -232,3 +232,12 @@ the null terminator.
 > Write a program to copy its input to its output, replacing each tab by \t,
 > each backspace by \b, and each backslash by \\.  This makes tabs and
 > backspaces visible in an unambiguous way.
+
+## 1-6
+
+k&r implement the 'isdigit' test like so:
+
+    if (c > '0' && c <= '9') {
+    }
+
+So we assume here we're dealing with ASCII.
