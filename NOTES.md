@@ -232,3 +232,15 @@ the null terminator.
 > Write a program to copy its input to its output, replacing each tab by \t,
 > each backspace by \b, and each backslash by \\.  This makes tabs and
 > backspaces visible in an unambiguous way.
+
+## 1.5.4 Word Counting
+
+This introduces the else clause, including else if.  It also recommends defining
+symbolic constants to designate both cases of a boolean variable.  It also
+introduces the || and && operators, greatly simplifying things, and the notation
+for assigning multiple variables at once.
+
+## Exercise 1-11
+
+Need to test all kinds of boundary conditions.  For instance, need to define
+what the correct behaviour is for strings like " \n \t " etc.
