@@ -269,3 +269,37 @@ It's possible to define and call a function only once (and K&R do not censure
 this usage).  It's not just to remove duplication, rather it's for clarification.
 
 We define a power function.
+
+We observe that raising negative integers to positive integer values results in
+the sign flipping back and forth depending on the odd/even status of the
+exponent.
+
+They use the word _parameter_ for the value used in the function itself:
+
+```
+int power(int x, int y) {
+    /* inside here, x and y are termed parameters */
+}
+```
+
+Whereas in the call `power(2, 3)`, the values 2 and 3 are _arguments_.
+
+They describe the contract of `main` and note that 0 indicates success, while
+nonzero indicates an error.
+
+They describe a very old form of C where functions were declared in a different
+weird style:
+
+```
+power(base, n)
+int base, n;
+{
+    /* function body goes here */
+}
+```
+
+Apparently this style is still accepted by compilers, called K&R style.
+
+## Ex1-15
+
+Done.

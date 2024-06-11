@@ -12,9 +12,11 @@ int power(int m, int n) {
 }
 
 int main() {
-    int result = power(2, 8);
+    int i;
 
-    printf("2^8 = %d\n", result);
-    printf("2^1 = %d\n", power(2, 1));
-    printf("2^0 = %d\n", power(2, 0));
+    for (i = 0; i < 10; ++i) {
+        printf("%d %d %d\n", i, power(2, i), power(-3, i));
+    }
+    
+    return 0;
 }
