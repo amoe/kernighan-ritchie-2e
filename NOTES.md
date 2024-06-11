@@ -303,3 +303,12 @@ Apparently this style is still accepted by compilers, called K&R style.
 ## Ex1-15
 
 Done.
+
+## 1.8 Arguments -- call by value
+
+All arguments are passed by value.  C functions can't directly alter a variable.
+
+You can work around this using pointers which are covered in chapter 5.
+
+Arrays are treated differently, though.  Arrays are not copied and they are
+passed as an address.  Hence, arrays function as if they were call-by-reference.
