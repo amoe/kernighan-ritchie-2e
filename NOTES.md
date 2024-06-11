@@ -258,3 +258,14 @@ Nothing too remarkable here:
 * No pointers yet, everything is initialized with loops.
 * Subscripts `a[i]` can be dynamic, as you would hope.
 
+## Ex 1-13, 1-14
+
+All implemented.  Nothing too challenging here, except the lack of functions
+does show as making things more difficult.
+
+## 1.7 Functions
+
+It's possible to define and call a function only once (and K&R do not censure
+this usage).  It's not just to remove duplication, rather it's for clarification.
+
+We define a power function.
