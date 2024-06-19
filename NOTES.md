@@ -317,3 +317,16 @@ This is actually very similar to the way that lists behave in Python.
 
 ## 1.9 Character Arrays
 
+I wrote the longest-line program blind, and it sort of works, but we don't know
+about null-terminated strings in C yet.
+
+Functions can take array-typed arguments in ANSI C:
+
+
+     int getline(char buffer[]) { ... }
+
+Here, `buffer` still ends up being passed as a pointer despite the typing.
+
+They write copy without a destination parameter which means it's null
+terminated.  Also they write the prototype backwards (destinaton, source).
+Which seems to be the prototype for the standard `strcpy` function.
