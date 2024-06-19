@@ -314,3 +314,6 @@ Arrays are treated differently, though.  Arrays are not copied and they are
 passed as an address.  Hence, arrays function as if they were call-by-reference.
 
 This is actually very similar to the way that lists behave in Python.
+
+## 1.9 Character Arrays
+
