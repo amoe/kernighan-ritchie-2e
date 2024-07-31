@@ -330,3 +330,6 @@ Here, `buffer` still ends up being passed as a pointer despite the typing.
 They write copy without a destination parameter which means it's null
 terminated.  Also they write the prototype backwards (destinaton, source).
 Which seems to be the prototype for the standard `strcpy` function.
+
+This is an interesting factoring which does allow us to keep the main algorithm
+fairly clean, while using explicit copies when necessary.
