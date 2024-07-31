@@ -2,10 +2,13 @@
 
 #define MAX_LINE_LENGTH 128
 
-
 /*
   getline() is a clashing name in OSX, so use mygetline.
-  returns 0 if end of file.  Otherwise return line length.  result will include a newline */
+  returns 0 if end of file.  Otherwise return line length.
+  The result will include a newline.
+  No mechanism is currently provided to allow the caller to know whether the
+  maxlen value was hit.
+*/
 int mygetline(char buffer[], int maxlen) {
     int c;
     int i = 0;
@@ -32,8 +35,10 @@ int mygetline(char buffer[], int maxlen) {
 }
 
 
-/* copy from one location to the other.  Prototype implies that they have to
- be null-terminated.*/
+/*
+  Copy from one location to the other.
+  Prototype implies that they have to be null-terminated.
+*/
 void copy(char source[], char destination[]) {
     int i = 0;
     while (source[i] != 0) {
