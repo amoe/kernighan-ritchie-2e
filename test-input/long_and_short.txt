@@ -1,0 +1,4 @@
+This line is less than 80 characters.
+On the other hand, this line is not: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+This line is also less than 80 characters.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx And here's another very long line to play with
