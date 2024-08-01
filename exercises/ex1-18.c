@@ -8,4 +8,17 @@
 */
 
 
-/* TODO */
+/* Basic approach: We can't do this on a pure getchar() filtering basis because
+   it requires making decisions only after we read a newline.  So we do need
+   to read the entire line.
+
+   e.g. hypothetically, if we used getchar(), once we read the trailing blank, we
+   would already have emitted it -- as we wouldn't be able to distinguish it from
+   a blank that was followed by a non-blank.
+
+   So what we need to do is identify the last non-blank character in each line,
+   and emit until that point.
+
+   If we find that the last non-blank character is at position 0, that means
+   that the line is blank, and we special case to not emit it at all.
+*/
