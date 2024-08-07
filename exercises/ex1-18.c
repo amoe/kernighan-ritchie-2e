@@ -23,6 +23,7 @@
    that the line is blank, and we special case to not emit it at all.
 */
 
+/*
 int mygetchar(int *result) {
     int value = getchar();
     *result = value;
@@ -36,7 +37,8 @@ int mygetline(char buffer[], int maxlen) {
         putchar(value);
     }
 }
+*/
 
 int main() {
-    mygetline(NULL, NULL);
+/*    mygetline(NULL, NULL);*/
 }
