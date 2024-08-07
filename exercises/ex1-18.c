@@ -22,3 +22,21 @@
    If we find that the last non-blank character is at position 0, that means
    that the line is blank, and we special case to not emit it at all.
 */
+
+int mygetchar(int *result) {
+    int value = getchar();
+    *result = value;
+    return value != EOF && value != '\n';
+}
+
+int mygetline(char buffer[], int maxlen) {
+    int value;
+    
+    while (mygetchar(&value)) {
+        putchar(value);
+    }
+}
+
+int main() {
+    mygetline(NULL, NULL);
+}
