@@ -3,3 +3,5 @@ Here is a line with 4 trailing spaces
 Here is a line with a trailing tab	
 
 Above was a blank line
+
+Above was a line with just 4 spaces

@@ -9,7 +9,7 @@ int mygetline(char buffer[], int maxlen) {
     int actually_read_length = 0;
 
     while (1) {
-        if (actually_read_length >= maxlen) {
+        if (actually_read_length >= (maxlen - 1)) {
             break;
         }
 
@@ -22,7 +22,7 @@ int mygetline(char buffer[], int maxlen) {
         buffer[actually_read_length] = value;
         actually_read_length++;
         
-        if (value == '\n' || value == EOF) {
+        if (value == '\n') {
             break;
         }
     }

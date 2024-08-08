@@ -23,22 +23,56 @@
    that the line is blank, and we special case to not emit it at all.
 */
 
-/*
-int mygetchar(int *result) {
-    int value = getchar();
-    *result = value;
-    return value != EOF && value != '\n';
-}
-
 int mygetline(char buffer[], int maxlen) {
     int value;
-    
-    while (mygetchar(&value)) {
-        putchar(value);
+    int actually_read_length = 0;
+
+    while (1) {
+        if (actually_read_length >= (maxlen - 1)) {
+            break;
+        }
+
+        value = getchar();
+
+        if (value == EOF) {
+            break;
+        }
+        
+        buffer[actually_read_length] = value;
+        actually_read_length++;
+        
+        if (value == '\n') {
+            break;
+        }
     }
+
+    buffer[actually_read_length] = 0;
+    return actually_read_length;
 }
-*/
+
 
 int main() {
-/*    mygetline(NULL, NULL);*/
+    int i;
+    char buffer[MAX_LINE_LENGTH];
+    
+    while (mygetline(buffer, MAX_LINE_LENGTH)) {
+        int len = 0;
+        while (buffer[len] != '\n') len++;
+        if (len == 0) {
+            /* do nothing */
+        } else {
+            for (i = len - 1; i >= 0; i--) {
+                if (buffer[i] == ' ' || buffer[i] == '\t') {
+                    /* do nothing */
+                } else {
+                    break;
+                }
+            }
+
+            /* add a terminator after the last nonblank */
+            buffer[i + 1] = '\0';
+
+            printf("%s\n", buffer);
+        }
+    }
 }
