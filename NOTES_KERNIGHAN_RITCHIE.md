@@ -352,3 +352,13 @@ instead:
 
 Otherwise the compiler turns off all args checks!  This is quite insane, I had
 no idea about this.  You can use -Wstrict-prototypes to enforce this.
+
+On definition vs declaration, K&R say this:
+
+> 'Definition' refers to the place where the variable is created or assigned
+> storage; 'declaration' refers to places where the nature of the variable is
+> stated but no storage is allocated.
+
+K&R warn against the overuse of extern, which obviously suffers from all the
+issues that FP attempts to mitigate.  K&R say we now know enough C to be pretty
+useful.
