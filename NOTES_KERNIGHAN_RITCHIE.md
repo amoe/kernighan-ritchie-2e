@@ -334,3 +334,21 @@ standard `strcpy` function.
 
 This is an interesting factoring which does allow us to keep the main algorithm
 fairly clean, while using explicit copies when necessary.
+
+## 1.10 External Variables and Scope
+
+External variables are declared at the global level and then declared `extern`
+in each function.  Extern is mainly used when splitting programs across multiple
+files.  Because you can declare a variable multiple times but you can only
+define it once.
+
+They note that in ANSI C you should not declare no-args functions thus:
+
+    int getline();
+
+instead:
+
+    int getline(void);
+
+Otherwise the compiler turns off all args checks!  This is quite insane, I had
+no idea about this.  You can use -Wstrict-prototypes to enforce this.
