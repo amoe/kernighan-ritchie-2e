@@ -357,3 +357,29 @@ compile time check.
 There's such a thing as *external* variables.  This is essentially a global
 variable that remains in existence permanently.  However they are using this
 term _without_ invoking the explicit C keyword `extern`.  TBD.
+
+External variables are declared at the global level and then declared `extern`
+in each function.  Extern is mainly used when splitting programs across multiple
+files.  Because you can declare a variable multiple times but you can only
+define it once.
+
+They note that in ANSI C you should not declare no-args functions thus:
+
+    int getline();
+
+instead:
+
+    int getline(void);
+
+Otherwise the compiler turns off all args checks!  This is quite insane, I had
+no idea about this.  You can use -Wstrict-prototypes to enforce this.
+
+On definition vs declaration, K&R say this:
+
+> 'Definition' refers to the place where the variable is created or assigned
+> storage; 'declaration' refers to places where the nature of the variable is
+> stated but no storage is allocated.
+
+K&R warn against the overuse of extern, which obviously suffers from all the
+issues that FP attempts to mitigate.  K&R say we now know enough C to be pretty
+useful.
