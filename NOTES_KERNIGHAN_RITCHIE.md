@@ -334,3 +334,26 @@ standard `strcpy` function.
 
 This is an interesting factoring which does allow us to keep the main algorithm
 fairly clean, while using explicit copies when necessary.
+
+## 1.10 External Variables and Scope
+
+Points:
+
+Local variables are local (they only exist in the scope of the declaring
+function). Local variables are also local to a function specifically (rather
+than some other area of code).
+
+The term 'automatic variables' is used.  This means that they get set up when
+the function is called, and they automatically disappear (because they are
+allocated on the stack).
+
+K&R point out that variables don't retain their value across calls.  No one
+would now expect this to be the case.  But additionally they are also
+undefined at initialization and probably contain some arbitrary value (which is
+not the case in most post-C languages).  Low level languages enforce
+initialization through various means, usually by explicitly requiring it as a
+compile time check.
+
+There's such a thing as *external* variables.  This is essentially a global
+variable that remains in existence permanently.  However they are using this
+term _without_ invoking the explicit C keyword `extern`.  TBD.
