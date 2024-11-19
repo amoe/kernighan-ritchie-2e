@@ -383,3 +383,17 @@ On definition vs declaration, K&R say this:
 K&R warn against the overuse of extern, which obviously suffers from all the
 issues that FP attempts to mitigate.  K&R say we now know enough C to be pretty
 useful.
+
+Ex1-20 -- K&R seem to use "symbolic parameter" to mean "preprocessor constant",
+or a #define.  Clearly the answer is that the tab stop size should be a
+'symbolic parameter' in this sense.
+
+Ex1-21 -- This is fairly straightforward state-machine style program that
+accumulates tabs and then optimizes them with quotient/remainder
+
+> When either a tab or a single blank would suffice to reach a tab stop, which
+> should be given preference?
+
+This is actually way more complicated because it's not just as simple as saying:
+"a tab produces 8 spaces".  Rather, a tab jumps the notional cursor to the next
+tab stop.
