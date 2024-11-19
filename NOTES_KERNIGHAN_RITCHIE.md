@@ -396,4 +396,4 @@ accumulates tabs and then optimizes them with quotient/remainder
 
 This is actually way more complicated because it's not just as simple as saying:
 "a tab produces 8 spaces".  Rather, a tab jumps the notional cursor to the next
-tab stop.
+tab stop.  I rewrote 1-20 to detab using the modulus operator.

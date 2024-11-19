@@ -7,11 +7,11 @@
 
 #define TAB_STOP_SIZE 8
 
-void emit_soft_tab() {
+static void emit_soft_tab(int n_spaces) {
     int i;
     char tab[TAB_STOP_SIZE + 1];
     
-    for (i = 0; i < TAB_STOP_SIZE; i++) {
+    for (i = 0; i < n_spaces; i++) {
         tab[i] = ' ';
     }
 
@@ -22,13 +22,25 @@ void emit_soft_tab() {
 
 int main() {
     int c = 0;
-    
-    
+    int chars_of_line_output = 0;
+    int remaining_spaces;
+
     while ((c = getchar()) != EOF) {
         if (c == '\t') {
-            emit_soft_tab();
+            /* Calculate the remaining spaces to reach the next tab stop.  Using
+             * the modulus means that we break the line into equal sized pieces
+             * of TAB_STOP_SIZE.  The difference between the tab stop size and
+             * the amount of characters already seen in this 'piece' is the
+             * amount of spaces we should emit. */
+            remaining_spaces = TAB_STOP_SIZE - (chars_of_line_output % TAB_STOP_SIZE);
+            emit_soft_tab(remaining_spaces);
+            chars_of_line_output += remaining_spaces;
+        } else if (c == '\n') {
+            putchar(c);
+            chars_of_line_output = 0;
         } else {
             putchar(c);
+            chars_of_line_output++;
         }
     }
 }
