@@ -12,7 +12,8 @@ test_data = [
     (
         b'abcdefghabcd                        efghabcdefgh\n',
         b'abcdefghabcd\t\t\t    efghabcdefgh\n'
-    )
+    ),
+    (b'\n', b'\n'),
 ]
 
 
@@ -23,7 +24,7 @@ print("Running test suite.")
 
 for test_input, expected in test_data:
     process = subprocess.run(
-        './build/ex1-21_tg', check=True, stdout=subprocess.PIPE, input=test_input
+        './build/ex1-21', check=True, stdout=subprocess.PIPE, input=test_input
     )
     result = process.stdout
 
