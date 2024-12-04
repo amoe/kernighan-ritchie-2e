@@ -39,3 +39,12 @@ def ex_1_22():
         # any info about the structure of the text.
         (b'foobarbaz\n', b'foobarba\nz\n')
     ]
+
+
+def ex_1_24():
+    return [
+        (b'()\n', b'OK\n'),
+        (b'(())\n', b'OK\n'),
+        (b'(()\n', b'FAIL\n'),
+        (b"('(')\n", b'OK\n')
+    ]

@@ -15,15 +15,25 @@ int main(void) {
     int c;
     int parenthesis_level = 0;
     int character_count = 0;
+    int inside_character_constant = 0;
 
     while ((c = getchar()) != EOF) {
         character_count++;
-        
-        if (c == '(') {
+
+        if (c == '\'') {
+            /* Flip character constant status on or off */
+            inside_character_constant = !inside_character_constant;
+        } else if (c == '(') {
+            if (inside_character_constant)
+                continue;
             parenthesis_level++;
         } else if (c == ')') {
+            if (inside_character_constant)
+                continue;
+            
             if (parenthesis_level == 0) {
-                printf(
+                fprintf(
+                    stderr,
                     "fatal: found unexpected closing parenthesis at %d\n",
                     character_count
                 );
@@ -33,15 +43,17 @@ int main(void) {
         } else if (c == '\n') {
             /* nothing */
         } else {
-            fprintf(stderr, "Only parentheses are supported as input.\n");
+            fprintf(stderr, "fatal: found character outside of program domain %c\n", c);
             return 1;
         }
     }
 
     if (parenthesis_level == 0) {
-        printf("All parentheses in input were balanced.\n");
+        /*printf("All parentheses in input were balanced.\n");*/
+        printf("OK\n");
     } else {
-        printf("Unbalanced parentheses.  Expected %d closing parentheses.\n", parenthesis_level);
+        /*printf("Unbalanced parentheses.  Expected %d closing parentheses.\n", parenthesis_level);*/
+        printf("FAIL\n");
     }
 
     return 0;

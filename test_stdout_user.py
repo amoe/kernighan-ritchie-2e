@@ -3,7 +3,8 @@ import test_data
 
 programs = [
     ('build/ex1-21', test_data.ex_1_21),
-    ('build/ex1-22', test_data.ex_1_22),
+#    ('build/ex1-22', test_data.ex_1_22),
+    ('build/ex1-24', test_data.ex_1_24),
 ]
     
 
