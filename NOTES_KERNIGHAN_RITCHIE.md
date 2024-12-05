@@ -397,3 +397,16 @@ accumulates tabs and then optimizes them with quotient/remainder
 This is actually way more complicated because it's not just as simple as saying:
 "a tab produces 8 spaces".  Rather, a tab jumps the notional cursor to the next
 tab stop.  I rewrote 1-20 to detab using the modulus operator.
+
+# Chapter 2: Types, Operators and Expressions
+
+ANSI C added some things with respect to the types available in C:
+
+* Signed and unsigned forms of all integers along with notations for their
+  values
+* Float operations possible with the `float` type and also a distinct `long
+  double` type.
+* Concatenation of string contants at compile time
+* Adding enumerations.
+* Adding the `const` qualifier for declarations.
+* New rules for coercion during arithmetic to support the above changes.
