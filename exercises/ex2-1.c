@@ -36,42 +36,18 @@ double negative_expt(int m, int n) {
 }
 
 void print_float(void) {
-    /* The maximum exponent is 128 due to the biased representation.
-       FIXME: calculate this. */
-    int maximum_exponent = 128;
+    /* First calculate 2^127; this is guaranteed to fit in a float.
+     The value should be 1.70e38*/
 
-    /* Calculate 2^127 in float */
-    int m = 2;
-    float result = m;
-    int n = maximum_exponent;
+    float result = 2.0;
+    float m = 2.0;
+    int n = 127;
+
     while (--n > 0) {
-        result = result * m;
+       result *= m;
     }
 
-    /* The largest possible value of the mantissa is
-       something extremely close to 2.
-       How close is defined as (1 + (1 - 2^M)) where M is mantissa size.
-    */
-
-    int mantissa_size = 23;
-
-    double blah = negative_expt(2, 23);
-
-    printf("blah is %.\n", blah);
-    
-    double maximum_mantissa = 1.0 + (1.0 - blah);
-
-    printf("Maximum mantissa = %g\n", maximum_mantissa);
-       
-
-    printf("%d^%d = %f\n", m, maximum_exponent, result);
-
-    if (result == FLT_MAX) {
-        printf("This is the largest float.\n");
-    } else {
-        printf("This is not the largest float.\n");
-    }
-    
+    printf("Result is %g\n", result);
 }
 
 void print_size(unsigned int type_size, int is_signed) {
