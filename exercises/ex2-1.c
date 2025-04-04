@@ -35,19 +35,51 @@ double negative_expt(int m, int n) {
     return 1.0 / result;
 }
 
+float binary_power(int n) {
+    float result = 2.0;
+    float m = 2.0;
+
+    int exponent;
+    /* If it's a negative power then we need to make it positive */
+    if (n < 0) {
+        exponent = -n;
+    } else {
+        exponent = n;
+    }
+    
+
+    while (--exponent > 0) {
+       result *= m;
+    }
+
+    /* If it's a negative power return the reciprocal */
+    if (n < 0) {
+        return 1 / result;
+    } else {
+        return result;
+    }
+}
+
 void print_float(void) {
     /* First calculate 2^127; this is guaranteed to fit in a float.
      The value should be 1.70e38*/
 
-    float result = 2.0;
-    float m = 2.0;
-    int n = 127;
+    float maximum_exponent = binary_power(127);
+    printf("Result is %g\n", maximum_exponent);
 
-    while (--n > 0) {
-       result *= m;
+    /* Now calculate 2^-23
+
+       The result should be 1.19e-7
+     */
+    float epsilon = binary_power(-23);
+    
+    float max = (2 - epsilon) * maximum_exponent;
+    
+    if (max == FLT_MAX) {
+        printf("This is the largest float.\n");
+    } else {
+        printf("This is not the largest float.\n");
     }
-
-    printf("Result is %g\n", result);
 }
 
 void print_size(unsigned int type_size, int is_signed) {
