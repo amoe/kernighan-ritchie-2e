@@ -39,7 +39,7 @@ Done, and the escaped character just got swallowed.   I assume because it was a
 All variables must be declared before they are used.
 
 In this book, they expect ints to be 16-bit  or 32-bit, but the range of ints is
-basically unspecified.
+basically unspecified in K&R, but in ANSI ints are at least 16 bits wide.
 
 floats are expected to be 32-bit.   This still applies now because of IEEE 754.
 They define the range of a float as 10^-38 to 10^38 and six significant digits.
@@ -416,5 +416,46 @@ ANSI C added some things with respect to the types available in C:
 It's normal in C to use lower case for variable names and uppercase for
 constants.
 
-For a regular variable (or 'internal name'), variables are unique to 31
-characters 
+For a regular variable (or 'internal name'), variables are unique to 31.
+For internal names (local variables) I think: 31 chars are significant; this is
+a conservative estimate.
+
+For external names, they should be case insensitive and unique to 6 characters.
+This is K&R but this is really crusty.  You can use 31 char external names in
+ANSI C so don't worry about this.
+
+## 2.2 Data Types and Sizes
+
+C types (in the context of K&R/ANSI period) are:
+
+* char -- 1 byte (or a character if-and-only-if the local charset fits into 8 bits).
+* int -- arbitrarily sized integer, under ANSI must be at least 16 bits wide
+* long -- commonly expected to be at least 32 bits
+* float -- at least 32 bit value
+* double -- commonly expected to be 64 bit
+
+Integer types can be modified using 'short' and 'long'.
+
+K&R write:
+
+> int will normally be the natural size for a particular machine
+
+The notion that the int type 'represents the native int size' seems to be wrong,
+as I am on x86_64 Mac, and get a 32 bit integer.  There was a decision made
+during the development of C to keep the size at 32 bits for C compatibility.
+Toolchains make a decision to keep the size of 'int' as 32, presumably because
+there's just too much 32 bit code.
+
+It's undefined whether a plain 'char' is signed or unsigned (!!!)
+This is kind of mad, so you should always default to unsigned char.
+Basically a plain char is always a code smell.
+
+You can specify a 'long double', unclear how large this is.  On my platform, a
+long double is twice the size of a double (128bit or 16 bytes, quite a huge
+value).
+
+C99 provides uint8_t which can be useful, some people define byte to unsigned
+char.
+
+<limits.h> provides these sizes which are also obtainable from sizeof()
+statement.
