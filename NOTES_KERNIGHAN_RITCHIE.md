@@ -410,3 +410,11 @@ ANSI C added some things with respect to the types available in C:
 * Adding enumerations.
 * Adding the `const` qualifier for declarations.
 * New rules for coercion during arithmetic to support the above changes.
+
+## 2.1 Variable Names
+
+It's normal in C to use lower case for variable names and uppercase for
+constants.
+
+For a regular variable (or 'internal name'), variables are unique to 31
+characters 
