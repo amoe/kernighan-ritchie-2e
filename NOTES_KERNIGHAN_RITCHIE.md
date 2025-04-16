@@ -456,3 +456,9 @@ char.
 <limits.h> provides these sizes which are also obtainable from sizeof()
 statement.
 
+Ex2-1 notes -- This is rather hard and involved learning some new stuff that
+isn't in the book.
+I don't think that this exercise is doable without knowing the representation of
+the floats, to at least some level, or at least knowing some
+implementation-specific behaviours of arithmetic.
+I made a blog post about this problem ("Floating Point Representation").
