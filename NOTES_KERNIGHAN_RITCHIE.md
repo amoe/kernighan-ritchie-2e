@@ -413,6 +413,10 @@ ANSI C added some things with respect to the types available in C:
 
 ## 2.1 Variable Names
 
+It's normal in C to use lower case for variable names and uppercase for
+constants.
+
+For a regular variable (or 'internal name'), variables are unique to 31.
 For internal names (local variables) I think: 31 chars are significant; this is
 a conservative estimate.
 
