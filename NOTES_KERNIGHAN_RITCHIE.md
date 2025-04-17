@@ -466,3 +466,54 @@ I don't think that this exercise is doable without knowing the representation of
 the floats, to at least some level, or at least knowing some
 implementation-specific behaviours of arithmetic.
 I made a blog post about this problem ("Floating Point Representation").
+
+## 2.3 Constants
+
+Long constants are written with an `L` suffix: `123456789L`.
+
+You can explicitly denote an unsigned constant with `100U` for instant, this
+will be of type `unsigned int`.
+
+There are no short constant as short isn't generally as useful, because mostly
+`int` corresponds to the word size and therefore is the most efficient type.
+
+By default any floating point constant is `double`.  Double is therefore the
+default type.  You can suffix with `F` to get an explicitly float-valued
+constant.  Octal and hexadecimal constants are supported.
+
+You can escape a question mark, for some reason to do with trigraphs.
+
+`strlen` exists as part of the C89 standard library.
+
+These two declarations:
+
+    char *foo = "MYSTRING";
+
+and
+
+    char foo[] = "MYSTRING";
+
+Are compiled in totally different ways.  The pointer notation is compiled into a
+read only data segment.  The `foo[]` notation has stuff copied onto the stack at
+runtime so might even be slower, and isn't read only.  So the lesson is to
+prefer the pointer notation.
+
+A discussion of enums.
+
+    enum months {
+        JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
+    };
+
+Note we specify the starting value and the rest of the values are all generated
+by incrementing the counter.  The value is of type int.  Enums here are seen as
+an alternative to #define.
+
+
+Note that `months` also becomes a type here, and you can assign to it, but
+values aren't type checked at compile time at all.  So this is legal:
+
+    enum months my_month = 22;   /* DOH, won't even generate a warning */
+
+A bug has been raised for this with not much result:
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67314
+
