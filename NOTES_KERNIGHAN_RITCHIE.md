@@ -495,8 +495,9 @@ and
 
 Are compiled in totally different ways.  The pointer notation is compiled into a
 read only data segment.  The `foo[]` notation has stuff copied onto the stack at
-runtime so might even be slower, and isn't read only.  So the lesson is to
-prefer the pointer notation.
+runtime so might even be slower, and isn't read only.  However, `const char[]
+foo` is actually better all round.
+
 
 A discussion of enums.
 
@@ -517,3 +518,36 @@ values aren't type checked at compile time at all.  So this is legal:
 A bug has been raised for this with not much result:
 https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67314
 
+
+## 2.4 Declarations
+
+K&R write (p40):
+
+> If the variable in question is not automatic, the initialization is done once
+> only, conceptually before the program starts executing, and the initializer
+> must be a constant expression.
+
+Remember that 'automatic variable' is used here as an antonym for static.  So
+any extern or static variables will have this initialization behaviour.  This is
+to do with 'lifetimes' a later term.  Note that automatic variables are in-fact
+initialized every etnry into the block.
+
+> External and static variables are initialized to zero by default.  Automatic
+> variables have undefined values.
+
+This is a fairly important quirk, and it's because non-automatic variables live
+in the BSS section of the binary, this is a portion of the object file that
+contains variables that are essentially automatically zeroed, so it's cost-free
+to initialize them.
+
+Discussion of the const qualifier:
+
+* For a scalar, the value will not be changed.
+* For an array, the elements will not be altered.
+
+`const char[] foo` is the preferred notation for constant messages and such, as
+it has the most compile-time guarantees and restrictive behaviour.
+
+When accepting an array parameter, this indicates the function does not change
+the array.  `const` does not specifically guarantee that compilers will flag the
+result as an error frustratingly.
