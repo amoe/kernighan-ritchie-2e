@@ -551,3 +551,16 @@ it has the most compile-time guarantees and restrictive behaviour.
 When accepting an array parameter, this indicates the function does not change
 the array.  `const` does not specifically guarantee that compilers will flag the
 result as an error frustratingly.
+
+
+## 2.5 Arithmetic Operators
+
+Modulus is only defined on integers.  The modulus operation does exist for
+floating point numbers, but C only defines it for integers.
+  
+Truncation for positive integers behaves predictable e.g. 5 / 2 is guaranteed to
+be 2, but -5 / 2 is implementation defined.  It could be either towards zero in
+which case the result is -2, or towards negative infinity in which case the
+result is -3.  However C99 standardises this to be towards zero, so the result
+in C99 is always -2.
+  

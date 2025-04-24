@@ -17,7 +17,10 @@ EXES := $(EXERCISES_EXES) $(MISC_EXES)
 
 # Compiler and flags
 CC := clang
-CFLAGS := -Wall -Wextra -O2 -std=c89
+
+# Disable unused variable warning as sometimes we just want to demonstrate
+# e.g. the syntax of a declaration.
+CFLAGS := -Wall -Wextra -Wno-unused-variable -O2 -std=c89
 
 # Default target to build all executables
 all: $(EXES)
