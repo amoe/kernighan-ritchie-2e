@@ -569,3 +569,7 @@ in C99 is always -2.
 There are certain precedence rules.  Logical operators have strict-evaluation
 short-circuiting behaviour.  The unary negation operators coerces its argument
 to either 1 or 0.
+
+Ex2-2 notes -- this is reasonably easy but a bit quirky.  There are quite a few
+edge cases in this, so I'm not 100% sure that I got it right, but I think the
+general strategy (replace logical AND with repeated if-conditions) is correct.
