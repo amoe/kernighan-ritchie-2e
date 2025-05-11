@@ -563,4 +563,9 @@ be 2, but -5 / 2 is implementation defined.  It could be either towards zero in
 which case the result is -2, or towards negative infinity in which case the
 result is -3.  However C99 standardises this to be towards zero, so the result
 in C99 is always -2.
-  
+
+## 2.6 Relational and Logical Operators
+
+There are certain precedence rules.  Logical operators have strict-evaluation
+short-circuiting behaviour.  The unary negation operators coerces its argument
+to either 1 or 0.
