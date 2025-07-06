@@ -1,5 +1,36 @@
 #include <stdio.h>
 
+/* We take an int because this is convention in C, to account for EOF. */
+int lower(int c) {
+    if (c >= 'A' && c <= 'Z') {
+        /* Lowercase characters are positioned sequentially after the
+           uppercase ones, and are separated by a gap.
+
+           So for instance:
+
+           Uppercase L = decimal 76
+
+           Lowercase 'a' = decimal 97
+
+           Uppercase 'A' = decimal 65
+
+           97 - 65 = 32
+
+           We rely on the alphabet being completely contiguous.
+           But there ARE non-alphabetic characters after all of the uppercase
+           characters, this doesn't matter though because they get included in
+           the gap count.
+         */
+
+
+        char gap_distance = 'a' - 'A';
+        return c + gap_distance;
+    } else {
+        return c;
+    }
+}
+
+
 int my_atoi(char s[]);
 
 int my_atoi(char s[]) {
@@ -32,6 +63,10 @@ int main(void) {
     int result = my_atoi("423");
 
     printf("Value of result is: %d\n", result);
+
+    int foo = lower('L');
+
+    printf("Lowercase L is: '%c'\n", foo);
     
     return 0;
 }

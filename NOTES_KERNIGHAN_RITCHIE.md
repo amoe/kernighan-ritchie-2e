@@ -581,3 +581,8 @@ the only automated coercions that happen are ones where the type doesn't "lose
 information".  The example given is promoting int values to float values.
 However there are cases where a C `int` would not be directly representable in
 a `float`.
+
+When making functions that primarily handle 'char' types, it's common practice
+to take and return int.  See 'tolower'.  This allows for idiomatic passthrough
+handling of e.g. EOF values (-1).  It seems rather old-fashioned nowadays though.
+
