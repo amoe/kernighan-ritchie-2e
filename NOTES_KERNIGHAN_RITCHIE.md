@@ -586,3 +586,19 @@ When making functions that primarily handle 'char' types, it's common practice
 to take and return int.  See 'tolower'.  This allows for idiomatic passthrough
 handling of e.g. EOF values (-1).  It seems rather old-fashioned nowadays though.
 
+'ctype.h' provides the following functions: isdigit(), tolower().
+
+If you're ever storing non-character data (i.e. not 'x' single-quote
+expressions) in a char, you MUST specify 'signed' or 'unsigned', to avoid being
+non-portable.
+
+Boolean relational expressions always return 1 or 0.  Some functions may not
+always return 1 or 0 e.g. isdigit(); they should be documented as returning
+'nonzero' for truthy values.
+
+Again, floats are not normally used, and double should be the default pick.
+
+Prototypes cause automatic coercion of arguments.  e.g. if a function takes a
+'double' but it's passed a 2, 2 will be coerced to 2.0.
+
+

@@ -1,5 +1,17 @@
 #include <stdio.h>
 
+unsigned long int next = 1;
+
+/* 15 bit Linear Congruential Generator RNG, very trad.  Constants chosen
+   for historical reasons. */
+
+
+int myrand(void) {
+    next = next * 1103515245 + 12345;
+    return (unsigned int) (next / 65536) % 32768;
+}
+
+
 /* We take an int because this is convention in C, to account for EOF. */
 int lower(int c) {
     if (c >= 'A' && c <= 'Z') {
@@ -59,6 +71,8 @@ int my_atoi(char s[]) {
 }
 
 int main(void) {
+    int i;
+    
 
     int result = my_atoi("423");
 
@@ -67,6 +81,13 @@ int main(void) {
     int foo = lower('L');
 
     printf("Lowercase L is: '%c'\n", foo);
+
+    printf("Testing random function.");
+
+    for (i = 0; i < 10; i++) {
+        int result = myrand();
+        printf("Value: %d\n", result);
+    }
     
     return 0;
 }
