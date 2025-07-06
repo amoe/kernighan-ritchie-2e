@@ -573,3 +573,11 @@ to either 1 or 0.
 Ex2-2 notes -- this is reasonably easy but a bit quirky.  There are quite a few
 edge cases in this, so I'm not 100% sure that I got it right, but I think the
 general strategy (replace logical AND with repeated if-conditions) is correct.
+
+## 2.7 Type Conversions
+
+The general rule is that when an operator has two operands of different types,
+the only automated coercions that happen are ones where the type doesn't "lose
+information".  The example given is promoting int values to float values.
+However there are cases where a C `int` would not be directly representable in
+a `float`.
