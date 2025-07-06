@@ -602,3 +602,10 @@ Prototypes cause automatic coercion of arguments.  e.g. if a function takes a
 'double' but it's passed a 2, 2 will be coerced to 2.0.
 
 
+## Ex 2-3
+
+This is quite an ok exercise.  I was a  bit tripped up that all hex constants
+are unsigned by definition, so I made my function return `unsigned int`, but
+then I still tried to print it with `%d`, which doesn't warn but interprets it
+as a negative integer which is clearly wrong.  However, the `atoi` algorithm
+works with a small adjustment, so I can't see any hidden wrinkles.
