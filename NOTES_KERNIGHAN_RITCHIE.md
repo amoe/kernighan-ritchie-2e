@@ -609,3 +609,25 @@ are unsigned by definition, so I made my function return `unsigned int`, but
 then I still tried to print it with `%d`, which doesn't warn but interprets it
 as a negative integer which is clearly wrong.  However, the `atoi` algorithm
 works with a small adjustment, so I can't see any hidden wrinkles.
+
+## 2.8 Increment and Decrement Operators
+
+Increment and decrement operators can only be applied to variables, not
+expressions.
+
+Something which is not really noted very much in the text is:
+
+When a function takes a single character as an argument, that tends to be typed
+as 'int', not as 'char'.  Why is this?
+There are several reasons but the most important two are:
+
+1.  A char constant actually has the type of 'int' already in C89.  This is a
+    surprising fact which is not made particular clear in K&R.  So using 'int'
+    allows this call `squeeze(s, 'a')` to make more sense.  If it were `char`,
+    it would potentially be downcasting.  *This is not true in C++*
+
+2.  Most library functions take and return int.  For instance strchr, getchar.
+    So using int allows working with these functions without unnecessary casts.
+    This has a similar feel to the way that nil-punning works in Clojure -- the
+    out-of-band value is smoothly passed through various chains of functions,
+    without raising an error.
