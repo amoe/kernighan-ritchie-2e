@@ -631,3 +631,10 @@ There are several reasons but the most important two are:
     This has a similar feel to the way that nil-punning works in Clojure -- the
     out-of-band value is smoothly passed through various chains of functions,
     without raising an error.
+    
+## Ex 2-4
+
+Reasonably simple, but the obvious solution is O(n^2).
+
+Note that the idiomatic way is not to use strlen(), rather to just walk until
+'\0', which makes sense.  The strlen call is unnecessary.
