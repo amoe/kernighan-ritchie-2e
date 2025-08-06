@@ -638,3 +638,9 @@ Reasonably simple, but the obvious solution is O(n^2).
 
 Note that the idiomatic way is not to use strlen(), rather to just walk until
 '\0', which makes sense.  The strlen call is unnecessary.
+
+## Ex 2-5
+
+Rather fun, again my solution is O(nm), but there's a cool elegance to using a
+conjunction in the loop condition to exit early -- without relying on `break`
+which I don't think has been introduced yet as of p62.
