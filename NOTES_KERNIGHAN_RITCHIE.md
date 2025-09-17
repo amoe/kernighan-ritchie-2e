@@ -644,3 +644,48 @@ Note that the idiomatic way is not to use strlen(), rather to just walk until
 Rather fun, again my solution is O(nm), but there's a cool elegance to using a
 conjunction in the loop condition to exit early -- without relying on `break`
 which I don't think has been introduced yet as of p62.
+
+## 2.9 Bitwise Operators
+
+Bitwise operators can only be applied to integral types i.e. no floats. --
+Not sure what happens if you try to do that (bitwise with floats).
+
+> The bitwise AND operator & is often used to mask off some set of bits;
+> for example, set to zero all but the low-order 7 bits of n:
+> 
+> n = n & 0177;
+
+Bitwise AND will basically do an AND operation on the bits of the two
+operands.
+
+What does "mask off" mean here -- it basically means 'discard the value of
+the higher bits (set to 0) while preserving the value of the lower bits'.
+
+Why is 0177 chosen? his is octal.  The decimal equivalent would be 127,
+or 0x7f.
+
+* So because it's 127, this means that it's represented by:
+
+0111 1111
+
+As a larger 16 bit integer would instead be
+
+ffee = 65518
+
+Masking this off would mean that it instantly just got reduced to its low 7
+bits.
+
+The binary representation is:
+
+1111 1111 1110 1110
+
+So & these:
+
+0000 0000 0110 1110
+
+= 0x6e = 110
+
+0x7f is chosen because there may be values stored in the higher parts of the int
+that you wish to ignore, for instance in the case of ASCII character data, or
+maybe some case where you're storing some data in the top part of the int, but
+having some flags in the lower part.
